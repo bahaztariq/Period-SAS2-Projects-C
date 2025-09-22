@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1758571408 source:c:\users\tariq bahaz\desktop\mini-projects-c\day1\01_variable\challenge10\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
