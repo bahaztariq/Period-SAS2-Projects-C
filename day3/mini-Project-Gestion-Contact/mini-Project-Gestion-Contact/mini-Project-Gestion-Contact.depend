@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1758907541 source:c:\users\safiy\onedrive\bureau\tariq bahaz\period-sas2-projects-c\day3\mini-project-gestion-contact\mini-project-gestion-contact\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<windows.h>
+
