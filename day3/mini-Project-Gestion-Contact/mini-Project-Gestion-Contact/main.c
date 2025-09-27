@@ -106,7 +106,7 @@ int Menu(){
     printf("0-QUITTER LE PROGRAM\n\n");
     printf("ENTRER TON CHOIX:");
 
-    if(scanf("%d",&choix)=true ){
+    if(scanf("%d",&choix)!=true ){
         while(getchar()!= '\n');
         return -1;
     }
@@ -192,9 +192,9 @@ bool isEmailValid(char T[]){
             PosPoint=i;
         }
     }
-    int checkSpecials =strcspn(T,";:/*({['#~\]})µ%§?!$£¤¨^");
+    int checkSpecials =strcspn(T,";:/*({['#~\]})Âµ%Â§?!$Â£Â¤Â¨^");
 
-    if(L>=20 && isArobasexist && isPointexist && PosArobas+3 < PosPoint && PosPoint<L-2 && checkSpecials==L){
+    if(L>=14 && isArobasexist && isPointexist && PosArobas+3 < PosPoint && PosPoint<L-2 && checkSpecials==L){
         return true;
     }else{
         return false;
