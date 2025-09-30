@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1759222160 source:c:\users\safiy\onedrive\bureau\tariq bahaz\period-sas2-projects-c\day4\project sas1\project sas1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<regex.h>
+	<windows.h>
+	<math.h>
+	<time.h>
+
