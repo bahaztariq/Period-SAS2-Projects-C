@@ -192,9 +192,13 @@ bool isEmailValid(char T[]){
             PosPoint=i;
         }
     }
-    int checkSpecials =strcspn(T,";:/*({['#~\]})µ%§?!$£¤¨^");
+    int checkSpecials =strcspn(T,";:/*({['#~\]})Âµ%Â§?!$Â£Â¤Â¨^");
 
+<<<<<<< HEAD
     if(L>=15 && isArobasexist && isPointexist && PosArobas+3 < PosPoint && PosPoint<L-2 && checkSpecials==L){
+=======
+    if(L>=14 && isArobasexist && isPointexist && PosArobas+3 < PosPoint && PosPoint<L-2 && checkSpecials==L){
+>>>>>>> 751920e7312a0830d0e845bcc7b87d98bd33d8a4
         return true;
     }else{
         return false;
