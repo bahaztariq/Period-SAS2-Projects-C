@@ -24,12 +24,9 @@
 #define reset "\e[0m"
 #define BWHT "\e[1;37m"
 
-#define POSTE1 "guardian"
-#define POSTE2 "Défenseur"
-#define POSTE3 "Milieu"
-#define POSTE4 "Attaquant"
-
 /**************** STRUCTURE *************/
+FILE *playerdata;
+
 typedef struct{
     int id;
     char nom[100];
@@ -82,6 +79,10 @@ void afficher_Players();
 void rechercher_Players();
 void modifier_player();
 void supprimer_Players();
+void readfromfile();
+void savetofile();
+int validatename(char T1[], char T2[]);
+int validatemaillot(int m);
 
 int main()
 {
@@ -124,6 +125,7 @@ int main()
 }
 char Menu(){
     /****************************************AFFICHAGE MENU******************************/
+    playerdata=fopen("player.csv","a+");
     char choix;
 
     system("cls");
@@ -207,9 +209,14 @@ void Ajoute_Menu(){
 void Ajoute_Player(){
     /*************************FUNCTIOON D'AJOUTER un player **********************/
     system("cls");
+    int sts,pst;
+
     printf("*****************AJOUTER PLAYERS****************\n\n");
 
-    player[N].id = rand()%4000 +1000;
+    player[N].id=N+1;
+
+    do{
+
 
     printf("ENTER THE NAME OF PLAYER %d:",N+1);
     fgets(player[N].nom,100,stdin);
@@ -218,19 +225,93 @@ void Ajoute_Player(){
     printf("ENTER THE LAST NAME OF PLAYER %d:",N+1);
     fgets(player[N].prenom,100,stdin);
     player[N].prenom[strcspn(player[N].prenom,"\n")]='\0';
+    }while(!validatename(player[N].nom,player[N].prenom));
+
+    do{
 
     printf("ENTER THE AGE OF PLAYER %d:",N+1);
     scanf("%d",player[N].age);
     while( getchar() != '\n');
 
+    }while(player[N].age<18 || player[N].age>50);
+
+    do{
+
     printf("ENTER T-SHIRT NUMBER OF PLAYER %d:",N+1);
     scanf("%d",player[N].maillot);
     while( getchar() != '\n');
+
+    }while(!validatemaillot(player[N].maillot));
+
+    do{
 
     printf("ENTER SCORED GOAL NUMBER OF PLAYER %d:",N+1);
     scanf("%d",player[N].buts);
     while( getchar() != '\n');
 
+    }while(player[N].buts<0);
+
+    do{
+    printf("ENTER THE POST NUMBER OF PLAYER %d (1-4):",N+1);
+    scanf("%d",&pst);
+    while( getchar() != '\n');
+
+    switch(pst){
+        case 1 : strcpy(player[N].poste,"guardien");
+                 break;
+        case 2 : strcpy(player[N].poste,"Defenseur");
+                 break;
+        case 3 : strcpy(player[N].poste,"Milieu");
+                 break;
+        case 4 : strcpy(player[N].poste,"Attaquant");
+                 break;
+        default: printf("please enter a valid choice");
+    }
+
+    }while(pst<1 || pst>4);
+
+    do{
+    printf("ENTER THE status OF PLAYER %d:",N+1);
+    scanf("%d",&sts);
+    while( getchar() != '\n');
+
+    switch(sts){
+        case 1 : strcpy(player[N].poste,"Titulaire");
+                 break;
+        case 2 : strcpy(player[N].poste,"Remplacent");
+                 break;
+        default: printf("please enter a valid choice");
+    }
+    }while(pst!=1 && pst!=2);
+
 
     N++;
+}
+int validatename(char T1[],char T2[]){
+   int found_name=0;
+   int found_prename=0;
+   for(int i=0;i<N;i++){
+      if(strcmpi(player[i].nom,T1)==0){
+        found_name=1;
+      }
+   }
+   for(int j=0;j<N;j++){
+      if(strcmpi(player[j].prenom,T1)==0){
+        found_prename=1;
+      }
+   }
+   if(found_name&&found_prename){
+    return 0;
+   }else{
+    return 1;
+   }
+}
+int validatemaillot(int m){
+
+   for(int i=0;i<N;i++){
+      if(player[i].nom == m){
+        return 1 ;
+      }
+   }
+   return 0;
 }

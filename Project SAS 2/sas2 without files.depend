@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1759340709 source:c:\users\safiy\onedrive\bureau\tariq bahaz\period-sas2-projects-c\sas2 without files\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<windows.h>
+	<math.h>
+	<time.h>
+
+1759392316 source:c:\users\safiy\onedrive\bureau\tariq bahaz\period-sas2-projects-c\project sas 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<windows.h>
+	<math.h>
+	<time.h>
+

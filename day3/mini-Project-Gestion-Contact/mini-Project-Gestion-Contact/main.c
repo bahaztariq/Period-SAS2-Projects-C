@@ -22,6 +22,7 @@
 typedef struct{
     char Nom[100];
     char PhoneN[15];
+
     char email[50];
 }Contacts;
 //*******************GLOBAL VARIABLES*****************
